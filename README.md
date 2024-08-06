@@ -1,5 +1,7 @@
 # Yarrowia-transformants-screening
-Scripts to analyze and select transformation subclones of Yarrowia lipolytica with the most abundant phenotype for further analysis.
+Scripts to analyze and select transformation subclones of Yarrowia lipolytica with the most abundant phenotype for further analyses.
 1) with no recombinant protein - read only growth
 2) with fluorescent protein - read growth and fluorescence, calculate specific fluorescence (fluorescence devided by biomass accumulation - growth)
 3) with amylolytic protein - read growth and enzymatic activity, calculate specific activity
+
+Researcher inputs the data in a form of a dictionary, which includes the modified cassette (e.g. 'scYFP_Hac1'), subclone number, timepoint of the sample, measured growth, and optionally, the measured amount of recombinant protein. The code then clusters each feature (growth, r-Prot synthesis, specific r-Prot synthesis), within one timepoint and devides the subclones into three clusters (presumably: main phenotype and two outlier phenotypes). Subclones that consistently fall into the same cluster at each timepoint are marked, and the most abundant group is chosen as the dominant phenotype. If fewer than three subclones are found in the most abundant cluster, clusters at earlier timepoints are removed until a minimum of three subclones remain in the main cluster. At the end, three plots are generated: 1) showing only the subclones suitable for further analyses, 2) displaying all subclones in the screening with marked subclones for further analyses, 3) illustrating all subclones with distinctive colors for verification of the calculated results.
